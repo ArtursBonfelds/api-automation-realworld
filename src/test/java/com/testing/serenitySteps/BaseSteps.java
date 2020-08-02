@@ -51,6 +51,10 @@ public class BaseSteps {
 
   @Step
   public static void assertStatusCode(int expectedStatusCode) {
+    if(expectedStatusCode==0){
+      throw new Error("Undefined expected status code !");
+    }
+
     Response res = sessionVariableCalled(RESPONSE);
 
     if (res.getStatusCode() != expectedStatusCode) {

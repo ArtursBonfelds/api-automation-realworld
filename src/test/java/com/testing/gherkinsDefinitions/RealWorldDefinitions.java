@@ -11,4 +11,9 @@ public class RealWorldDefinitions {
   public void theUserCreatesAnAccountWithFollowingData(DataTable dataTable) throws IOException {
     RealworldSteps.createAnAccount(dataTable);
   }
+
+  @When("^the user logs into account with following data:$")
+  public void theUserLogsIntoAccountWithFollowingData(DataTable dataTable) throws IOException {
+    RealworldSteps.logIntoAccount(dataTable);
+  }
 }

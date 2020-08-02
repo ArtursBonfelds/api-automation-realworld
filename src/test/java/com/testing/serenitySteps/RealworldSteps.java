@@ -16,6 +16,8 @@ import static net.serenitybdd.core.Serenity.setSessionVariable;
 public class RealworldSteps extends BaseSteps {
   private final static String _API_USERS_ = "/api/users/";
   private final static String _API_ARTICLES_ = "/api/articles/";
+  // Find endpoint for API login
+  private final static String _API_USERS_LOGIN_ = null;
 
   @Steps
   RealworldSteps realworldSteps;
@@ -41,6 +43,22 @@ public class RealworldSteps extends BaseSteps {
       saveValueInPathToSessionVariable("user --> token", "token");
     }
   }
+
+  @Step
+  public static void logIntoAccount(DataTable dataTable) throws IOException {
+    Map<String, Object> map = new HashMap<>(dataTable.asMap(String.class, String.class));
+    setSessionVariable("token").to(null);
+
+    if(map.get("user --> email").toString().equals(RANDOM_EMAIL)){
+      map.replace("user --> email", sessionVariableCalled(RANDOM_EMAIL));
+    }
+
+    sendRequestWithBodyJson(POST, _API_USERS_LOGIN_, createBody(map));
+    if (((Response) sessionVariableCalled(RESPONSE)).statusCode() == 200) {
+      saveValueInPathToSessionVariable("user --> token", "token");
+    }
+  }
+
 
   // Private
 
