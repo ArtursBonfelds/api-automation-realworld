@@ -1,26 +1,27 @@
 package com.testing.serenitySteps;
 
 import com.testing.requestBodies.BaseRequestBody;
+import com.tools.support.Service;
 import cucumber.api.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.rest.decorators.request.RequestSpecificationDecorated;
 import net.thucydides.core.annotations.Step;
-
-import static com.tools.support.SupportVariables.SPLIT_PATTERN;
-import static net.serenitybdd.core.Serenity.*;
-import static net.serenitybdd.rest.SerenityRest.rest;
-
-import com.tools.support.Service;
-
 import org.apache.commons.collections.MapUtils;
 import org.json.JSONObject;
 import org.junit.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import static com.tools.support.SupportVariables.SPLIT_PATTERN;
+import static net.serenitybdd.core.Serenity.*;
+import static net.serenitybdd.rest.SerenityRest.rest;
 
 @SuppressWarnings("unchecked")
 public class BaseSteps {
