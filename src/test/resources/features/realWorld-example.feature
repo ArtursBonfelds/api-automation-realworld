@@ -1,5 +1,5 @@
+@run
 Feature: Realworld-example Feature
-
   Background:
     Given the user creates an account with following data:
       | user --> username | RANDOM_USERNAME           |
@@ -7,7 +7,7 @@ Feature: Realworld-example Feature
       | user --> password | totalyAwsomeAndUniquePass |
     Then  user gets status code "200"
 
-  @runx
+
   Scenario: Validate the account
     Then the path "user" contains the following values:
       | username | RANDOM_USERNAME |
@@ -33,7 +33,7 @@ Feature: Realworld-example Feature
       | user --> password | totalyAwsomeAndUniquePass |
     Then user gets status code "401"
 
-  @runx
+
   Scenario: Update user profile settings
     # Implement the undefined step
     # Find the missing XXX & YYY JSON keys
@@ -51,7 +51,7 @@ Feature: Realworld-example Feature
       | username | newUsername                                                      |
       | password | newUniquePassword                                                |
 
-  @runx
+
   Scenario: Create a new post
     # Implement the undefined step
     # Find the missing XXX & YYY JSON keys
@@ -69,7 +69,7 @@ Feature: Realworld-example Feature
       | email    | RANDOM_EMAIL    |
       | username | RANDOM_USERNAME |
 
-  @runx
+
   Scenario: Delete post
     # Find the missing XXX & YYY JSON keys
     When the user creates a post using the following data:
@@ -84,7 +84,7 @@ Feature: Realworld-example Feature
     When the user deletes article
     Then user gets status code "200"
 
-  @runx
+
   Scenario: Modify post
     # Find the missing XXX & YYY JSON keys
     When the user creates a post using the following data:
@@ -127,7 +127,7 @@ Feature: Realworld-example Feature
     # Find the missing XXX & YYY JSON keys
     And  the value of path "comment --> body" is "This is my comment"
 
-  @run
+
   Scenario: Delete comment from post
     # Find the missing XXX & YYY JSON keys
     When the user creates a post using the following data:
